@@ -15,4 +15,6 @@ public interface IProductService {
     public void delete(Product product);
 
     public void update(Product product, Long id);
+
+    public Product findBySku(String sku);
 }

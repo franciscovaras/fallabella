@@ -6,7 +6,8 @@ import java.util.List;
 
 public class FixtureProduct {
 
-    public static final Long SKU = 1L;
+    public static final Long ID = 1L;
+    public static final String SKU = "FAL-8818985";
     public static final String NAME = "TV";
     public static final String BRAND = "LG";
     public static final String SIZE = "1000";
@@ -19,6 +20,7 @@ public class FixtureProduct {
     public static Product products() {
 
         return Product.builder()
+                .id(ID)
                 .sku(SKU)
                 .name(NAME)
                 .brand(BRAND)

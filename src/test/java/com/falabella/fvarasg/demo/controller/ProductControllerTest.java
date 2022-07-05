@@ -12,7 +12,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -61,21 +60,21 @@ public class ProductControllerTest {
     @Test
     void findByIdTest_ok(){
         Mockito.when(iProductService.findById(any())).thenReturn(FixtureProduct.products());
-        ResponseEntity<Object> response = productController.findById(FixtureProduct.SKU);
+        ResponseEntity<Object> response = productController.findById(FixtureProduct.ID);
         assertNotNull(response);
     }
 
     @Test()
     void  findByIdTest_error(){
         Mockito.doThrow(UsuarioNoEncontradoException.class).when(iProductService).findById(any());
-        ResponseEntity<Object> response = productController.findById(FixtureProduct.SKU);
+        ResponseEntity<Object> response = productController.findById(FixtureProduct.ID);
     }
 
     @Test
     void deleteTest_ok(){
         Mockito.when(iProductService.findById(any())).thenReturn(FixtureProduct.products());
         Mockito.doNothing().when(iProductService).delete(any());
-        productController.delete(FixtureProduct.SKU);
+        productController.delete(FixtureProduct.ID);
 
     }
 
@@ -83,13 +82,13 @@ public class ProductControllerTest {
     void deleteTest_error(){
         Mockito.when(iProductService.findById(any())).thenReturn(FixtureProduct.products());
         Mockito.doThrow(UsuarioNoEncontradoException.class).when(iProductService).delete(any());
-        productController.delete(FixtureProduct.SKU);
+        productController.delete(FixtureProduct.ID);
     }
 
     @Test
     void updtae_ok(){
         Mockito.doNothing().when(iProductService).update(any(), any());
-        productController.update(FixtureProduct.products(), FixtureProduct.SKU);
+        productController.update(FixtureProduct.products(), FixtureProduct.ID);
     }
 
 }

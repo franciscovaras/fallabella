@@ -48,4 +48,9 @@ public class ProductServiceImpl implements IProductService {
         response.setPrincipalImage(product.getPrincipalImage());
         iProductDao.save(response);
     }
+
+    @Override
+    public Product findBySku(String sku) {
+        return iProductDao.findBySku(sku);
+    }
 }

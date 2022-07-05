@@ -78,4 +78,16 @@ public class ProductController {
     public void update(@RequestBody Product product, @PathVariable Long id){
         iProductService.update(product, id);
     }
+
+    @GetMapping("/search/sku/{sku}")
+    public ResponseEntity<Object> findBySku(@PathVariable String sku) {
+        try {
+            Product response = iProductService.findBySku(sku);
+            Optional.ofNullable(response).orElseThrow(() -> new UsuarioNoEncontradoException(sku));
+            return ResponseEntity.ok().body(response);
+        } catch (UsuarioNoEncontradoException e) {
+            System.out.println(e.getClass().getName());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

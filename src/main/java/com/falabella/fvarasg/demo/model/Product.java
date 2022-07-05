@@ -35,7 +35,10 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long sku;
+    private Long id;
+
+    @NonNull
+    private String sku;
 
     @NonNull
     private String name;

@@ -46,7 +46,7 @@ public class ProductServiceTest {
     @Test
     void findByIdServiceTest(){
         Mockito.when(iProductDao.findById(any())).thenReturn(Optional.ofNullable(FixtureProduct.products()));
-        Product response = productService.findById(FixtureProduct.SKU);
+        Product response = productService.findById(FixtureProduct.ID);
         assertNotNull(response);
     }
 
@@ -60,7 +60,7 @@ public class ProductServiceTest {
     void updateServiceTest(){
         Mockito.when(iProductDao.findById(any())).thenReturn(Optional.ofNullable(FixtureProduct.products()));
         Mockito.when(iProductDao.save(any())).thenReturn(FixtureProduct.products());
-        productService.update(FixtureProduct.products(), FixtureProduct.SKU);
+        productService.update(FixtureProduct.products(), FixtureProduct.ID);
     }
 
 }
