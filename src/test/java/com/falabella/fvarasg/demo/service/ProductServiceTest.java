@@ -63,4 +63,11 @@ public class ProductServiceTest {
         productService.update(FixtureProduct.products(), FixtureProduct.ID);
     }
 
+    @Test
+    void findBySkuServiceTest(){
+        Mockito.when(iProductDao.findBySku(any())).thenReturn((FixtureProduct.products()));
+        Product response = productService.findBySku(FixtureProduct.SKU);
+        assertNotNull(response);
+    }
+
 }

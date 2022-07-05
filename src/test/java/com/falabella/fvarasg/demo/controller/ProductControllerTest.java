@@ -91,4 +91,17 @@ public class ProductControllerTest {
         productController.update(FixtureProduct.products(), FixtureProduct.ID);
     }
 
+    @Test
+    void findBySkuTest_ok(){
+        Mockito.when(iProductService.findBySku(any())).thenReturn(FixtureProduct.products());
+        ResponseEntity<Object> response = productController.findBySku(FixtureProduct.SKU);
+        assertNotNull(response);
+    }
+
+    @Test()
+    void  findByIdSku_error(){
+        Mockito.doThrow(UsuarioNoEncontradoException.class).when(iProductService).findBySku(any());
+        ResponseEntity<Object> response = productController.findBySku(FixtureProduct.SKU);
+    }
+
 }
