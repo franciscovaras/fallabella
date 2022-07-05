@@ -11,12 +11,13 @@ Microservicio prueba para Falabella. Este microservicio es un CRUD Repository co
 
 # End Points
 
-| Nombre   | Ruta              | Descripción                                                       |
-| findAll  | "/product/search" | Busca toda la data existente                                      |
-| create   | "/product/create" | Crea un nuevo producto, recibe como parámetro el objeto Producto  |
-| findById | "/search/{id}"    | Hace la búsqueda por id (sku) del producto                        |
-| delete   | "/delete/{id}"    | Elimina el producto por id (sku)                                  |
-| update   | "/update/{id}"    | Actualiza el Producto por id (sku)                                |
+| Nombre    | Ruta               | Descripción                                                       |
+| findAll   | "/product/search"  | Busca toda la data existente                                      |
+| create    | "/product/create"  | Crea un nuevo producto, recibe como parámetro el objeto Producto  |
+| findById  | "/search/{id}"     | Hace la búsqueda por id (sku) del producto                        |
+| delete    | "/delete/{id}"     | Elimina el producto por id (sku)                                  |
+| update    | "/update/{id}"     | Actualiza el Producto por id (sku)                                |
+| findBySku | "/search/sku/{sku}"| Busca Producto por sku                                            |
 
 
 #BD
